@@ -4,6 +4,8 @@ Simply split various i3 settings into multiple files.
 
 ## Usage
 
+Replace the content of `/home/username/.config/i3` with the repository.
+
 First usage:
 ```shell
 sudo chmod a+x build.sh
