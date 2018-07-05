@@ -1,0 +1,55 @@
+####################
+##### SETTINGS #####
+####################
+
+
+# Window frame
+  for_window [class=".*"] border pixel 2
+
+# Inner gap
+  gaps inner 4
+
+# Outer gap
+  gaps outer 4
+
+# Smart Stuff
+  smart_gaps on
+  smart_borders on
+
+# Focus lose
+  focus_follows_mouse no
+
+
+# STARTUP
+
+# Startup only
+  # Transparency manager
+    exec --no-startup-id compton 
+
+  # Tray Wifi shortcut 
+    exec --no-startup-id nm-applet 
+  
+  # ?
+    exec --no-startup-id pcloud
+
+  # Touchepad
+    # Enable two finger scroll
+      exec --no-startup-id xinput --set-prop "DELL07E6:00 06CB:76AF Touchpad" "Synaptics Two-Finger Scrolling" 1 1
+    # Natural scrolling
+      exec --no-startup-id xinput --set-prop "DELL07E6:00 06CB:76AF Touchpad" "Synaptics Scrolling Distance" -27, -27
+
+
+# Also on reload
+  # Rofi colous
+    exec_always --no-startup-id xrdb .Xressources
+
+  # Wallpaper
+    exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Firefox_wallpaper.png
+
+  # Multiple display settings
+    exec_always --no-startup-id xrandr --output DP-1 --off --output eDP-1 --primary --mode 1920x1080 --pos 976x2160 --rotate normal --output DP-2 --mode 3840x2160 --pos 0x0 --rotate normal
+
+
+  # ?
+  exec_always --no-startup-id "killall polybar; polybar -r default"
+

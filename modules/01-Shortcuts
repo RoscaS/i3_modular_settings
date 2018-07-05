@@ -1,0 +1,162 @@
+#####################
+##### SHORTCUTS #####
+#####################
+
+
+##### APPLICATIONS #####
+
+	# Terminal
+		bindsym $mod+Return exec terminator
+
+	# Rofi
+		bindsym $alt+space exec rofi -show drun
+
+	# BetterLockScreen
+		bindsym $mod+shift+x exec betterlockscreen --lock
+
+	# Dolphin
+		bindsym $mod+shift+d exec dolphin
+
+	# Firefox
+		bindsym $mod+shift+f exec firefox
+
+	# VsCode
+		bindsym $mod+shift+c exec code
+
+
+	# In app shortcuts
+
+		# Pulse Audio controls
+			bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
+			bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+			bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+		# Sreen brightness controls
+			bindsym XF86MonBrightnessUp exec light -A 5
+			bindsym XF86MonBrightnessDown exec light -U 5
+
+
+		# Media player controls
+			bindsym XF86AudioPlay exec playerctl play
+			bindsym XF86AudioPause exec playerctl pause
+			bindsym XF86AudioNext exec playerctl next
+			bindsym XF86AudioPrev exec playerctl previous
+		
+		# ScreenShot
+			bindsym Print exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i # Print screen
+
+
+
+##### ACTIONS #####
+
+# Alt tab like
+	bindsym $alt+Tab exec rofi -show 
+
+# Next workspace
+	bindsym $mod+Tab workspace next
+
+# Previous workspace
+	bindsym $mod+shift+Tab workspace prev
+
+# reload the configuration file
+	# bindsym $mod+Shift+c reload
+
+# restart i3 inplace 
+# (preserves your layout/session, can be used to upgrade i3)
+	bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+	bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# kill focused window
+	bindsym $alt+F4 kill
+
+
+# FOCUS #	
+
+	# change focus
+		bindsym $mod+j focus left
+		bindsym $mod+k focus down
+		bindsym $mod+i focus up
+		bindsym $mod+l focus right
+
+		# alternative: cursor keys
+			bindsym $mod+Left focus left
+			bindsym $mod+Down focus down
+			bindsym $mod+Up focus up
+			bindsym $mod+Right focus right
+
+	# move focused window
+		bindsym $mod+Shift+j move left
+		bindsym $mod+Shift+k move down
+		bindsym $mod+Shift+i move up
+		bindsym $mod+Shift+l move right
+
+		# alternative: cursor keys
+			bindsym $mod+Shift+Left move left
+			bindsym $mod+Shift+Down move down
+			bindsym $mod+Shift+Up move up
+			bindsym $mod+Shift+Right move right
+	
+	# change focus between tiling / floating windows
+		bindsym $mod+space focus mode_toggle	
+
+	# focus the parent container
+		bindsym $mod+a focus parent
+
+	# focus the child container
+		bindsym $mod+d focus child
+
+
+# SPLITS #
+
+	# Horizontal orientation
+		bindsym $mod+h split h
+
+	# Vertical orientation
+		bindsym $mod+v split v
+
+
+# MODIFIERS #
+
+	# Fullscreen mode for the focused container
+		bindsym $mod+f fullscreen toggle
+
+	# toggle tiling / floating
+		bindsym $mod+Shift+space floating toggle
+
+	# Change container layout:
+		# stacked
+			bindsym $mod+s layout stacking
+		# tabbed
+			bindsym $mod+w layout tabbed
+		# toggle split (back to default)
+			bindsym $mod+e layout toggle split
+
+
+# WORKSPACES #
+
+	# switch to workspace
+		bindsym $mod+1 workspace $ws1
+		bindsym $mod+2 workspace $ws2
+		bindsym $mod+3 workspace $ws3
+		bindsym $mod+4 workspace $ws4
+		bindsym $mod+5 workspace $ws5
+		bindsym $mod+6 workspace $ws6
+		bindsym $mod+7 workspace $ws7
+		bindsym $mod+8 workspace $ws8
+		bindsym $mod+9 workspace $ws9
+		bindsym $mod+0 workspace $ws10
+
+	# move focused container to workspace
+		bindsym $mod+Shift+1 move container to workspace $ws1
+		bindsym $mod+Shift+2 move container to workspace $ws2
+		bindsym $mod+Shift+3 move container to workspace $ws3
+		bindsym $mod+Shift+4 move container to workspace $ws4
+		bindsym $mod+Shift+5 move container to workspace $ws5
+		bindsym $mod+Shift+6 move container to workspace $ws6
+		bindsym $mod+Shift+7 move container to workspace $ws7
+		bindsym $mod+Shift+8 move container to workspace $ws8
+		bindsym $mod+Shift+9 move container to workspace $ws9
+		bindsym $mod+Shift+0 move container to workspace $ws10
+
